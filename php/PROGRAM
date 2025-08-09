@@ -1,0 +1,11 @@
+<?php
+$var_this = "this";
+$that = "that";
+$the_other = 2.2;
+$not_set = "nothing";
+
+print("$var_this, $not_set, $that $the_other");
+?>
+
+Output:
+this, nothing, that 2.2
