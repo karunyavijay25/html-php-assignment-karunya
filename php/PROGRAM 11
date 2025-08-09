@@ -1,0 +1,35 @@
+<?php
+// Get the current day number (1 for Monday, 7 for Sunday)
+$day_number = date("N"); // 1 = Monday, 7 = Sunday
+
+echo "Day Number: $day_number<br>";
+echo "Day Name: ";
+
+switch ($day_number) {
+    case 1:
+        echo "Monday";
+        break;
+    case 2:
+        echo "Tuesday";
+        break;
+    case 3:
+        echo "Wednesday";
+        break;
+    case 4:
+        echo "Thursday";
+        break;
+    case 5:
+        echo "Friday";
+        break;
+    case 6:
+        echo "Saturday";
+        break;
+    case 7:
+        echo "Sunday";
+        break;
+    default:
+        echo "Invalid day";
+}
+
+output:
+Day Number: 5<br>Day Name: Friday
