@@ -1,0 +1,27 @@
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Get and sanitize input values
+    $name = htmlspecialchars($_POST["name"]);
+    $email = htmlspecialchars($_POST["email"]);
+    $message = htmlspecialchars($_POST["message"]);
+
+    // Display confirmation message
+    echo "Thank you, $name!<br>";
+    echo "We have received your message.<br>";
+    echo "Your email: $email";
+} else {
+    // Show the form
+    echo '<form method="post" action="">
+            Name: <input type="text" name="Karunya" required><br><br>
+            Email: <input type="email" name="karunyaviajy@gmail.com" required><br><br>
+            Message: <textarea name="message" rows="5" cols="30" required></textarea><br><br>
+            <input type="submit" value="Submit">
+          </form>';
+}
+?>
+output:
+Name: Karunya
+
+Email: karunyavijay@gmail.com
+
+Message: Hello!
