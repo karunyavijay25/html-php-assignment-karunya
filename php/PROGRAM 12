@@ -1,0 +1,21 @@
+<?php
+// Sample marks — you can change this value to test
+$marks = 68;
+
+// Display marks
+echo "Marks: $marks<br>";
+
+// Check grade based on conditions
+if ($marks >= 75) {
+    echo "Grade: First Class";
+} elseif ($marks >= 60 && $marks <= 74) {
+    echo "Grade: Second Class";
+} elseif ($marks >= 40 && $marks <= 59) {
+    echo "Grade: Third Class";
+} else {
+    echo "Grade: Fail";
+}
+?>
+
+output:
+Marks: 68<br>Grade: Second Class
