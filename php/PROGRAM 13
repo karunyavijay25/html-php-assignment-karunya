@@ -1,0 +1,7 @@
+<?php
+$sub = substr("12345", 2, 2); // wrap number in quotes to make it a string
+echo "sub is $sub";
+?>
+
+Output:
+sub is 34
