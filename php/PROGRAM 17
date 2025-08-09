@@ -1,0 +1,53 @@
+<?php
+// Initial account balance
+$balance = 1000;
+
+// Function to handle deposit
+function deposit($amount, $balance) {
+    if ($amount > 0) {
+        $balance += $amount;
+        echo "Deposited: Rs. $amount<br>";
+    } else {
+        echo "Invalid deposit amount.<br>";
+    }
+    return $balance;
+}
+
+// Function to handle withdrawal
+function withdraw($amount, $balance) {
+    if ($amount > 0 && $amount <= $balance) {
+        $balance -= $amount;
+        echo "Withdrawn: Rs. $amount<br>";
+    } else {
+        echo "Invalid or insufficient funds for withdrawal.<br>";
+    }
+    return $balance;
+}
+
+// Loop to allow multiple transactions (simulate 3 rounds)
+for ($i = 1; $i <= 3; $i++) {
+    echo "<hr><strong>Transaction $i</strong><br>";
+    
+    // Simulated user input
+    $transactionType = "deposit"; // change to "withdraw" to test
+    $amount = 500; // change amount as needed
+
+    // Use switch to handle transaction type
+    switch ($transactionType) {
+        case "deposit":
+            $balance = deposit($amount, $balance);
+            break;
+
+        case "withdraw":
+            $balance = withdraw($amount, $balance);
+            break;
+
+        default:
+            echo "Invalid transaction type.<br>";
+    }
+
+    echo "Current Balance: Rs. $balance<br>";
+}
+
+output:
+<hr><strong>Transaction 1</strong><br>Deposited: Rs. 500<br>Current Balance: Rs. 1500<br><hr><strong>Transaction 2</strong><br>Deposited: Rs. 500<br>Current Balance: Rs. 2000<br><hr><strong>Transaction 3</strong><br>Deposited: Rs. 500<br>Current Balance: Rs. 2500<br>
