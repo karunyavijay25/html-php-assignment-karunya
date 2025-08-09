@@ -1,0 +1,25 @@
+<?php
+$a = 10;
+$b = "10";
+$c = 15;
+
+echo "<h3>Checking Equality with var_dump()</h3>";
+
+echo "\$a == \$b : ";
+var_dump($a == $b); // true, values are equal (type ignored)
+
+echo "<br>\$a === \$b : ";
+var_dump($a === $b); // false, because type is different (int vs string)
+
+echo "<br>\$a == \$c : ";
+var_dump($a == $c); // false, values are different
+
+echo "<br>\$b == \$c : ";
+var_dump($b == $c); // false, values are different
+?>
+
+output:
+Checking Equality with var_dump()</h3>$a == $b : bool(true)
+$a === $b : bool(false)
+$a == $c : bool(false)
+$b == $c : bool(false)
