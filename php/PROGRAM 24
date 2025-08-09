@@ -1,0 +1,80 @@
+<?php
+$str = "  Hello World! PHP is amazing.  ";
+
+// Original string
+echo "<h3>Original String:</h3>";
+echo "'" . $str . "'<br><br>";
+
+// 1. strlen() - length of string
+echo "Length of string: " . strlen($str) . "<br>";
+
+// 2. trim() - remove whitespace from both ends
+echo "Trimmed string: '" . trim($str) . "'<br>";
+
+// 3. ltrim() - remove whitespace from left
+echo "Left trim: '" . ltrim($str) . "'<br>";
+
+// 4. rtrim() - remove whitespace from right
+echo "Right trim: '" . rtrim($str) . "'<br>";
+
+// 5. strtolower() - convert to lowercase
+echo "Lowercase: " . strtolower($str) . "<br>";
+
+// 6. strtoupper() - convert to uppercase
+echo "Uppercase: " . strtoupper($str) . "<br>";
+
+// 7. ucfirst() - uppercase first letter
+echo "Uppercase first letter: " . ucfirst(trim($str)) . "<br>";
+
+// 8. ucwords() - uppercase first letter of each word
+echo "Uppercase words: " . ucwords(trim($str)) . "<br>";
+
+// 9. strrev() - reverse the string
+echo "Reversed: " . strrev(trim($str)) . "<br>";
+
+// 10. substr() - extract part of string
+echo "Substring (0-5): " . substr(trim($str), 0, 5) . "<br>";
+
+// 11. strpos() - find position of first occurrence
+echo "Position of 'PHP': " . strpos($str, "PHP") . "<br>";
+
+// 12. str_replace() - replace all occurrences
+echo "Replace 'World' with 'Universe': " . str_replace("World", "Universe", $str) . "<br>";
+
+// 13. str_ireplace() - replace ignoring case
+echo "Case-insensitive replace 'php' with 'Java': " . str_ireplace("php", "Java", $str) . "<br>";
+
+// 14. strcmp() - string comparison
+echo "Compare 'apple' & 'banana': " . strcmp("apple", "banana") . "<br>";
+
+// 15. explode() - split into array
+$words = explode(" ", trim($str));
+echo "Explode into words: ";
+print_r($words);
+echo "<br>";
+
+// 16. implode() - join array into string
+echo "Implode words back: " . implode("-", $words) . "<br>";
+
+// 17. htmlspecialchars() - convert HTML special chars
+$htmlString = "<b>Bold</b>";
+echo "HTML special chars: " . htmlspecialchars($htmlString) . "<br>";
+
+// 18. str_repeat() - repeat string
+echo "Repeat 'Hi': " . str_repeat("Hi ", 3) . "<br>";
+
+// 19. wordwrap() - wrap text at certain length
+$longText = "PHP is a popular general-purpose scripting language that is especially suited to web development.";
+echo "<pre>" . wordwrap($longText, 20, "\n") . "</pre>";
+
+// 20. number_format() - format number
+$number = 1234567.8912;
+echo "Formatted number: " . number_format($number, 2) . "<br>";
+?>
+
+output:
+[0] => Hello
+[1] => World!
+[2] => PHP
+[3] => is
+[4] => amazing.
