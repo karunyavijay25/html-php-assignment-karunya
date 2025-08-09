@@ -1,0 +1,37 @@
+<?php
+echo "<h3>PHP Function Demonstration</h3>";
+
+// 1. rand()
+echo "<b>1. rand()</b><br>";
+$randomNum = rand(1, 10);
+echo "Random number between 1 and 10: " . $randomNum . "<br><br>";
+
+// 2. abs()
+echo "<b>2. abs()</b><br>";
+$number = -25;
+echo "Absolute value of $number: " . abs($number) . "<br><br>";
+
+// 3. str_replace()
+echo "<b>3. str_replace()</b><br>";
+$text = "Hello World";
+$replacedText = str_replace("World", "PHP", $text);
+echo "Original: $text<br>";
+echo "After replace: $replacedText<br><br>";
+
+// 4. pi()
+echo "<b>4. pi()</b><br>";
+echo "Value of pi: " . pi() . "<br><br>";
+
+// 5. ceil()
+echo "<b>5. ceil()</b><br>";
+$value = 4.2;
+echo "Ceil value of $value: " . ceil($value) . "<br>";
+?>
+
+output:
+PHP Function Demonstration
+1. rand()</b><br>Random number between 1 and 10: 7
+2. abs()</b><br>Absolute value of -25: 25
+3. str_replace()</b><br>Original: Hello World<br>After replace: Hello PHP
+4. pi()</b><br>Value of pi: 3.1415926535898
+5. ceil()</b><br>Ceil value of 4.2: 5
