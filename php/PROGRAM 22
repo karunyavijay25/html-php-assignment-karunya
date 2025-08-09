@@ -1,0 +1,31 @@
+<?php
+// Function to count word occurrences
+function countWordOccurrences($string, $word) {
+    // Convert both to lowercase for case-insensitive search
+    $string = strtolower($string);
+    $word = strtolower($word);
+
+    // Use str_word_count to split into words
+    $wordsArray = str_word_count($string, 1);
+
+    // Count occurrences
+    $count = 0;
+    foreach ($wordsArray as $w) {
+        if ($w === $word) {
+            $count++;
+        }
+    }
+    return $count;
+}
+
+// Example usage
+$text = "PHP is great, and PHP is popular. I love PHP!";
+$searchWord = "PHP";
+
+$result = countWordOccurrences($text, $searchWord);
+
+echo "The word '$searchWord' occurs $result times in the given string.";
+?>
+
+output:
+The word 'PHP' occurs 3 times in the given string.
