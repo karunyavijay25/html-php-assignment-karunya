@@ -1,0 +1,41 @@
+<?php
+// Array of students with their marks
+$students = array(
+    "Arun" => 85,
+    "Bala" => 72,
+    "Cathy" => 58,
+    "David" => 40,
+    "Esha" => 29
+);
+
+// Loop through each student
+foreach ($students as $name => $marks) {
+    echo "Student: $name, Marks: $marks, Grade: ";
+
+    // Check grade based on marks
+    if ($marks >= 90) {
+        echo "A+";
+    } elseif ($marks >= 80) {
+        echo "A";
+    } elseif ($marks >= 70) {
+        echo "B";
+    } elseif ($marks >= 60) {
+        echo "C";
+    } elseif ($marks >= 50) {
+        echo "D";
+    } elseif ($marks >= 35) {
+        echo "E";
+    } else {
+        echo "Fail";
+    }
+
+    echo "\n"; // New line
+}
+?>
+
+output:
+Student: Arun, Marks: 85, Grade: A
+Student: Bala, Marks: 72, Grade: B
+Student: Cathy, Marks: 58, Grade: D
+Student: David, Marks: 40, Grade: E
+Student: Esha, Marks: 29, Grade: Fail
