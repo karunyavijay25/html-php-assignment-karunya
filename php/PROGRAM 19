@@ -1,0 +1,23 @@
+<?php
+// Function to get highest and lowest values from an array
+function getMinMax($numbers) {
+    $highest = max($numbers);
+    $lowest = min($numbers);
+    return array("highest" => $highest, "lowest" => $lowest);
+}
+
+// Example array of numbers
+$numberArray = array(45, 12, 78, 3, 89, 23, 56);
+
+// Call the function
+$result = getMinMax($numberArray);
+
+// Display the results
+echo "Given Array: " . implode(", ", $numberArray) ;
+echo "Highest Value: " . $result['highest'] . "<br>";
+echo "Lowest Value: " . $result['lowest'];
+?>
+output:
+Given Array: 45, 12, 78, 3, 89, 23, 56
+Highest Value: 89
+Lowest Value: 3
