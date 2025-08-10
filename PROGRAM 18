@@ -1,0 +1,22 @@
+<?php
+$name = "Karunya"; 
+$email = null;
+
+if (isset($name)) {
+    echo "Name is set<br>";
+} else {
+    echo "Name is not set<br>";
+}
+
+if (isset($email)) {
+    echo "Email is set<br>";
+} else {
+    echo "Email is not set<br>";
+}
+
+if (isset($phone)) {
+    echo "Phone is set<br>";
+} else {
+    echo "Phone is not set<br>";
+}
+?>
