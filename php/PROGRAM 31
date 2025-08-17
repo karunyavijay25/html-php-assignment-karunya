@@ -1,0 +1,27 @@
+<?php
+$numbers = array(10, 20, 30, 40, 50);
+echo "Original Array: ";
+print_r($numbers);
+$removedElement = array_shift($numbers);
+echo "<br><br>Removed Element: " . $removedElement . "<br>";
+echo "Array After Removing First Element: ";
+print_r($numbers);
+?>
+
+Output:
+
+Original Array: Array
+(
+    [0] => 10
+    [1] => 20
+    [2] => 30
+    [3] => 40
+    [4] => 50
+)
+<br><br>Removed Element: 10<br>Array After Removing First Element: Array
+(
+    [0] => 20
+    [1] => 30
+    [2] => 40
+    [3] => 50
+)
