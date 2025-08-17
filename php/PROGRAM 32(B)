@@ -1,0 +1,12 @@
+<?php
+$mail = "admin@example.com";       // Define a string with an email address
+$mail = str_replace("a", "@", $mail);  // Replace all occurrences of 'a' with '@'
+echo "Contact me at $mail.";       // Display the modified string
+?>
+
+Output:
+
+Array
+(
+    [2] => emily
+)
