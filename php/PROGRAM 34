@@ -1,0 +1,11 @@
+<?php
+$text = "The sky is blue. Blue is my favorite color. I like blue flowers.";
+
+// Replace "blue" (case-insensitive) with "red"
+$updatedText = preg_replace("/blue/i", "red", $text);
+
+echo $updatedText;
+
+Output:
+
+The sky is red. red is my favorite color. I like red flowers.
