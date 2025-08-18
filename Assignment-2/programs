@@ -1,0 +1,1084 @@
+31] <?php
+$numbers = array(10, 20, 30, 40, 50);
+echo "Original Array: ";
+print_r($numbers);
+$removedElement = array_shift($numbers);
+echo "<br><br>Removed Element: " . $removedElement . "<br>";
+echo "Array After Removing First Element: ";
+print_r($numbers);
+?>
+Output:
+Original Array: Array
+(   [0] => 10
+    [1] => 20
+    [2] => 30
+    [3] => 40
+    [4] => 50  )
+<br><br>Removed Element: 10<br>Array After Removing First Element: Array
+(  [0] => 20
+    [1] => 30
+    [2] => 40
+    [3] => 50 )
+
+32] A) <?php
+$mail = "admin@example.com";       
+$mail = str_replace("a", "@", $mail);  
+echo "Contact me at $mail.";       
+?>
+Output:
+Contact me at @dmin@ex@mple.com.
+32] B) <?php
+$mail = "admin@example.com";       
+$mail = str_replace("a", "@", $mail);  
+echo "Contact me at $mail.";       
+?>
+Output:
+Array
+(
+    [2] => emily
+)
+33] <?php
+$matrix = array(
+    array(1, 2, 3),   
+    array(4, 5, 6),   
+    array(7, 8, 9)    
+);
+$value = $matrix[1][2];   // Index starts at 0
+echo "The value in the second row and third column is: $value";
+?>
+Output:
+The value in the second row and third column is: 6
+34] <?php
+$text = "The sky is blue. Blue is my favorite color. I like blue flowers.";
+$updatedText = preg_replace("/blue/i", "red", $text);
+echo $updatedText;
+Output:
+The sky is red. red is my favorite color. I like red flowers.
+35] <?php
+$sentence = "Welcome to PHP programming. PHP is very interesting!";
+$words = array("PHP", "Java", "programming", "Python");
+foreach ($words as $word) {
+    if (strpos($sentence, $word) !== false) {
+        echo "The string contains: $word\n";
+    } else {
+        echo "The string does NOT contain: $word\n";
+    }
+}
+?>
+Output:
+The string contains: PHP
+The string does NOT contain: Java
+The string contains: programming
+The string does NOT contain: Python
+36] <?php
+$fruits = array("Apple", "Banana", "Mango", "Orange", "Grapes", "Pineapple");
+echo "List of fruits in the array:\n";
+foreach ($fruits as $index => $fruit) {
+    echo ($index + 1) . ". " . $fruit . "\n";
+}
+echo "\nThe third fruit in the array is: " . $fruits[2];
+?>
+Output:
+List of fruits in the array:
+1. Apple
+2. Banana
+3. Mango
+4. Orange
+5. Grapes
+6. Pineapple
+The third fruit in the array is: Mango
+37] <?php
+$fruits = array("Apple", "Banana");
+echo "Original Array:\n";
+print_r($fruits);
+array_push($fruits, "Mango", "Orange");
+echo "\nAfter using array_push:\n";
+print_r($fruits);
+$removedFruit = array_pop($fruits);
+echo "\nAfter using array_pop:\n";
+print_r($fruits);
+echo "\nThe removed fruit is: " . $removedFruit;
+?>
+Output:
+Original Array:
+Array
+(
+    [0] => Apple
+    [1] => Banana
+)
+After using array_push:
+Array
+(
+    [0] => Apple
+    [1] => Banana
+    [2] => Mango
+    [3] => Orange
+)
+After using array_pop:
+Array
+(
+    [0] => Apple
+    [1] => Banana
+    [2] => Mango
+)
+The removed fruit is: Orange
+38] <?php
+$fruits = array("Apple", "Banana", "Mango", "Orange");
+reset($fruits);
+echo "Iterating over array using while loop:\n";
+while (($fruit = current($fruits)) !== false) {
+    echo key($fruits) . " => " . $fruit . "\n";
+    next($fruits); // move to the next element
+}
+?>
+Output:
+Iterating over array using while loop:
+0 => Apple
+1 => Banana
+2 => Mango
+3 => Orange
+39] <?php
+$students = array(
+    "Alice" => 85,
+    "Bob" => 72,
+    "Charlie" => 91,
+    "David" => 60,
+    "Eva" => 45
+);
+function calculateGrade($score) {
+    if ($score >= 90) return "A";
+    elseif ($score >= 75) return "B";
+    elseif ($score >= 60) return "C";
+    elseif ($score >= 50) return "D";
+    else return "F";
+}
+echo "Student Report:\n";
+foreach ($students as $name => $score) {
+    $grade = calculateGrade($score);
+    echo "$name - Score: $score, Grade: $grade\n";
+}
+$average = array_sum($students) / count($students);
+$highest = max($students);
+$lowest = min($students);
+echo "\nClass Summary:\n";
+echo "Average Score: " . round($average, 2) . "\n";
+echo "Highest Score: $highest\n";
+echo "Lowest Score: $lowest\n";
+?>
+Output:
+Student Report:
+Alice - Score: 85, Grade: B
+Bob - Score: 72, Grade: C
+Charlie - Score: 91, Grade: A
+David - Score: 60, Grade: C
+Eva - Score: 45, Grade: F
+
+Class Summary:
+Average Score: 70.6
+Highest Score: 91
+Lowest Score: 45
+40] <?php
+$text = "Welc@ome! to P#HP Pr0gramm!ng 2025 :)";
+$chars = str_split($
+$filtered = array();
+foreach ($chars as $ch) {
+    if (ctype_alnum($ch) || $ch === " ") {
+        $filtered[] = $ch;  // keep only letters, numbers, and space
+    }
+}
+$cleanText = implode("", $filtered);
+echo "Original String: " . $text . "\n";
+echo "Filtered String: " . $cleanText;
+?>
+Output:
+Original String: Welc@ome! to P#HP Pr0gramm!ng 2025 :)
+Filtered String: Welcome to PHP Pr0grammng 2025 
+Output:
+Original String: Welc@ome! to P#HP Pr0gramm!ng 2025 :)
+Filtered String: Welcome to PHP Pr0grammng 2025
+41] <?php
+$input = $_POST['text'] ?? 'Mail us at admin@example.com, info@test.org; cc: first.last@sub.domain.co.in';
+$emails = [];
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $pattern = '/[A-Za-z0-9._%+\-]+@[A-Za-z0-9.\-]+\.[A-Za-z]{2,}/';
+    preg_match_all($pattern, $input, $matches);
+    $emails = $matches[0] ?? [];
+}
+?>
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"><title>Q41 Extract Emails</title></head>
+<body>
+<h2> Extract Emails Using Regular Expressions</h2>
+<form method="post">
+    <textarea name="text" rows="5" 
+cols="70"><?= htmlspecialchars($input)?></textarea><br><br>
+    <button type="submit">Extract</button>
+</form>
+<?php if ($_SERVER['REQUEST_METHOD'] === 'POST'): ?>
+    <h3>Found Emails (<?= count($emails) ?>)</h3>
+    <?php if ($emails): ?>
+        <ul><?php foreach ($emails as $e) echo "<li>".htmlspecialchars($e)."</li>";?></ul>
+    <?php else: ?>
+        <p>No valid emails found.</p>
+    <?php endif; ?>
+<?php endif; ?>
+</body>
+</html>
+Output:   Input:
+Text: Contact us at info@example.com or support@test.org for details.
+Output:
+Found Emails:
+info@example.com
+support@test.org
+42] $marks1 = array(360,310,310,330,313,375,456,111,256);
+$marks2 = array(350,340,356,330,321);
+$marks3 = array(630,340,570,635,434,255,298);
+ANSWER:
+<?php
+$marks1 = [360,310,310,330,313,375,456,111,256];
+$marks2 = [350,340,356,330,321];
+$marks3 = [630,340,570,635,434,255,298];
+$all = array_merge($marks1, $marks2, $marks3);
+$maxVal = max($all);
+$minVal = min($all);
+$stats = [
+    'marks1' => ['min'=>min($marks1),'max'=>max($marks1)],
+    'marks2' => ['min'=>min($marks2),'max'=>max($marks2)],
+    'marks3' => ['min'=>min($marks3),'max'=>max($marks3)],
+];
+?>
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"><title>Max & Min Marks</title></head>
+<body>
+<h2> Maximum and Minimum Marks</h2>
+<h3>Given Arrays</h3>
+<pre><?php
+print_r(['marks1'=>$marks1,'marks2'=>$marks2,'marks3'=>$marks3]);
+?></pre>
+<h3>Overall</h3>
+<p><b>Maximum (overall):</b> <?= $maxVal ?></p>
+<p><b>Minimum (overall):</b> <?= $minVal ?></p>
+<h3>Per-Array Stats</h3>
+<pre><?php print_r($stats); ?></pre>
+</body>
+</html>
+OUTPUT:   Maximum Mark: 635
+Minimum Mark: 111
+43] <?php
+$password = $_POST['password'] ?? '';
+$valid = null;
+$errors = [];
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (strlen($password) < 8) $errors[] = "At least 8 characters."
+ if (!preg_match('/[A-Z]/', $password)) $errors[] = "At least one uppercase letter.";
+    if (!preg_match('/[a-z]/', $password)) $errors[] = "At least one lowercase letter.";
+    if (!preg_match('/\d/', $password))   $errors[] = "At least one digit.";
+    if (!preg_match('/[\W_]/', $password)) $errors[] = "At least one special character.";
+    $valid = empty($errors);
+}
+?>
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"><title>Q43 Password Validator</title></head>
+<body>
+<h2>Password Validation (Regex)</h2>
+<form method="post">
+    <input type="text" name="password" size="40" placeholder="Enter password" value="<?=htmlspecialchars($password)?>">
+    <button type="submit">Validate</button>
+</form>
+<?php if ($valid !== null): ?>
+    <?php if ($valid): ?>
+        <p style="color:green;"><b>Valid password </b></p>
+    <?php else: ?>
+        <p style="color:red;"><b>Invalid password </b></p>
+        <ul><?php foreach ($errors as $e) echo "<li>".htmlspecialchars($e)."</li>"; ?></ul>
+    <?php endif; ?>
+    <p><b>Single Regex (reference):</b> <code>^(?=.[A-Z])(?=.[a-z])(?=.\d)(?=.[\W_]).{8,}$</code></p>
+     <?php endif; ?>
+</body>
+</html>
+OUTPUT:   Q43: Password Validation (Regex)
+hello_0606M
+Valid password ✅
+Single Regex (reference): ^(?=.[A-Z])(?=.[a-z])(?=.\d)(?=.[\W_]).{8,}$
+44] <?php
+session_start();
+if (!isset($_SESSION['playlist'])) {
+    $_SESSION['playlist'] = []; // each song: ['title'=>..., 'artist'=>..., 'duration'=>seconds]
+}
+$playlist = &$_SESSION['playlist'];
+function sanitize($s){ return trim($s); }
+function add_song(&$pl, $title, $artist, $duration) {
+    $pl[] = ['title'=>$title, 'artist'=>$artist, 'duration'=>(int)$duration];
+}
+function remove_song(&$pl, $idx) {
+    if (isset($pl[$idx])) array_splice($pl, $idx, 1);
+}
+function move_song(&$pl, $idx, $dir) {
+    $new = $idx + ($dir === 'up' ? -1 : 1);
+    if ($idx>=0 && isset($pl[$idx]) && $new>=0 && isset($pl[$new])) {
+        [$pl[$idx], $pl[$new]] = [$pl[$new], $pl[$idx]];
+    }
+}
+function sort_by(&$pl, $key) {
+    $col = array_column($pl, $key);
+    array_multisort($col, SORT_ASC, $pl);
+}
+function total_duration($pl) {
+    return array_reduce($pl, fn($c,$s)=>$c+$s['duration'], 0);
+}
+function fmt_time($sec) {
+    $m = floor($sec/60); $s = $sec%60;
+  return sprintf("%02d:%02d", $m, $s);
+}
+$action = $_POST['action'] ?? null;
+if ($action === 'reset') {
+    $playlist = [
+        ['title'=>'Dreams','artist'=>'Fleetwood Mac','duration'=>257],
+        ['title'=>'Levitating','artist'=>'Dua Lipa','duration'=>203],
+        ['title'=>'Blinding Lights','artist'=>'The Weeknd','duration'=>200],
+    ];
+} elseif ($action === 'add') {
+    $t = sanitize($_POST['title'] ?? '');
+    $a = sanitize($_POST['artist'] ?? '');
+    $d = (int)($_POST['duration'] ?? 0);
+    if ($t && $a && $d>0) add_song($playlist, $t, $a, $d);
+} elseif ($action === 'remove') {
+    remove_song($playlist, (int)($_POST['index'] ?? -1));
+} elseif ($action === 'move') {
+    move_song($playlist, (int)($_POST['index'] ?? -1), $_POST['dir'] ?? 'up');
+} elseif ($action === 'sort_title') {
+    sort_by($playlist, 'title');
+} elseif ($action === 'sort_artist') {
+    sort_by($playlist, 'artist');
+} elseif ($action === 'shuffle') {
+    shuffle($playlist);
+}
+?>
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"><title>Q44 Playlist Manager</title></head>
+<body>
+<h2> Music Playlist Management (Session + Arrays)</h2>
+<form method="post" style="margin-bottom:12px;">
+<button name="action" value="reset">Create Sample Playlist</button>
+    <button name="action" value="sort_title">Sort by Title</button>
+    <button name="action" value="sort_artist">Sort by Artist</button>
+    <button name="action" value="shuffle">Shuffle</button>
+</form>
+<form method="post">
+    <input type="hidden" name="action" value="add">
+    Title: <input name="title" required>
+    Artist: <input name="artist" required>
+    Duration (sec): <input name="duration" type="number" min="1" required>
+    <button type="submit">Add Song</button>
+</form>
+<?php if ($playlist): ?>
+    <h3>Current Playlist</h3>
+    <table border="1" cellpadding="6">
+        <tr><th>#</th><th>Title</th><th>Artist</th><th>Duration</th><th>Actions</th></tr>
+        <?php foreach ($playlist as $i=>$song): ?>
+            <tr>
+                <td><?= $i ?></td>
+                <td><?= htmlspecialchars($song['title']) ?></td>
+                <td><?= htmlspecialchars($song['artist']) ?></td>
+                <td><?= fmt_time($song['duration']) ?></td>
+                <td>
+                    <form method="post" style="display:inline;">
+                        <input type="hidden" name="index" value="<?=$i?>">
+                        <button name="action" value="move">Move</button>
+                        <input type="hidden" name="dir" value="up">
+                    </form>
+                    <form method="post" style="display:inline;">
+                        <input type="hidden" name="index" value="<?=$i?>">
+                        <input type="hidden" name="dir" value="down">
+                        <button name="action" value="move"></button>
+                    </form>
+                    <form method="pos t" style="display:inline;">
+                        <input type="hidden" name="index" value="<?=$i?>">
+                        <button name="action" value="remove">Remove</button>
+                    </form>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+        <tr>
+            <td colspan="3" align="right"><b>Total Duration</b></td>
+            <td colspan="2"><b><?= fmt_time(total_duration($playlist)) ?></b></td>
+        </tr>
+    </table>
+<?php else: ?>
+    <p>No songs yet. Click “Create Sample Playlist” or add your own.</p>
+<?php endif; ?>
+</body>
+</html>
+OUTPUT:
+Music Playlist Management (Session + Arrays)
+Create Sample Playlist Sort by Title Sort by Artist Shuffle
+Title:  Artist:  Duration (sec):  Add Song
+Current Playlist
+#	Title	Artist	Duration	Actions
+0	Dreams	Fleetwood Mac	04:17	Move 
+Remove
+1	Levitating	Dua Lipa	03:23	Move 
+2	Blinding Lights	The Weeknd	03:20	Move 
+Remove
+Total Duration	11:00
+45] <?php
+function array_diff_assoc_recursive($a1, $a2) {
+    $diff = [];
+    foreach ($a1 as $k => $v) {
+        if (array_key_exists($k, $a2)) {
+            if (is_array($v) && is_array($a2[$k])) {
+                $sub = array_diff_assoc_recursive($v, $a2[$k]);
+                if (!empty($sub)) $diff[$k] = $sub;
+            } elseif ($a2[$k] !== $v) {
+                $diff[$k] = $v;
+            }
+        } else {
+            $diff[$k] = $v; // key missing in a2
+        }
+    }
+    return $diff;
+}
+$defaultA = [
+    "user" => ["id"=>1,"name"=>"Alice","roles"=>["admin","editor"]],
+    "active" => true,
+    "meta" => ["lang"=>"en","tz"=>"IST"]
+];
+$defaultB = [
+    "user" => ["id"=>1,"name"=>"Alice","roles"=>["admin","viewer"]],
+    "active" => false,
+    "meta" => ["lang"=>"en","tz"=>"UTC"]
+];
+
+$rawA = $_POST['a'] ?? json_encode($defaultA, JSON_PRETTY_PRINT);
+$rawB = $_POST['b'] ?? json_encode($defaultB, JSON_PRETTY_PRINT);
+$out = null; $err = null;
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $a = json_decode($rawA, true);
+    $b = json_decode($rawB, true);
+    if (!is_array($a) || !is_array($b)) {
+        $err = "Both inputs must be valid JSON objects/arrays.";
+    } else {
+        $out = array_diff_assoc_recursive($a, $b);
+    }
+}
+?>
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"><title>Q45 Compare Multidimensional Arrays</title></head>
+<body>
+<h2>Recursive Difference of Two Multidimensional Arrays</h2>
+<form method="post">
+    <table>
+        <tr>
+            <td>
+            <p><b>Array A (JSON)</b></p>
+                <textarea name="a" rows="12" cols="50"><?=htmlspecialchars($rawA)?></textarea>
+            </td>
+            <td>
+                <p><b>Array B (JSON)</b></p>
+                <textarea name="b" rows="12" cols="50"><?=htmlspecialchars($rawB)?></textarea>
+            </td>
+        </tr>
+    </table>
+    <br><button type="submit">Compare</button>
+</form>
+
+<?php if ($err): ?>
+    <p style="color:red;"><?=htmlspecialchars($err)?></p>
+<?php elseif ($out !== null): ?>
+    <h3>Differences (A − B)</h3>
+    <pre><?php print_r($out); ?></pre>
+<?php endif; ?>
+</body>
+</html>
+OUTPUT:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+46] <?php
+$raw = $_POST['arr'] ?? '10, 20, 30, 20, 50';
+$target = $_POST['target'] ?? '20';
+$arr = array_values(array_filter(array_map('trim', explode(',', $raw)), fn($x)=>$x!==''));
+$firstIndex = null;
+$allIndices = [];
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // treat as strings for generality; change to numeric with array_map('intval', $arr) if needed
+    $firstIndex = array_search($target, $arr, true);
+    foreach ($arr as $idx => $val) {
+        if ($val === $target) $allIndices[] = $idx;
+    }
+}
+?>
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"><title>Q46 Find Index in Array</title></head>
+<body>
+<h2>Q46: Find Index of a Specific Value</h2>
+<form method="post">
+    Array (comma-separated): <input type="text" name="arr" size="50" value="<?=htmlspecialchars($raw)?>"><br><br>
+    Target value: <input type="text" name="target" value="<?=htmlspecialchars($target)?>">
+    <button type="submit">Find</button>
+</form>
+<?php if ($_SERVER['REQUEST_METHOD'] === 'POST'): ?>
+    <h3>Result</h3>
+    <p><b>Array:</b> [<?=htmlspecialchars(implode(', ', $arr))?>]</p>
+    <?php if ($firstIndex !== false): ?>
+        <p><b>First index of "<?=htmlspecialchars($target)?>":</b> <?= $firstIndex ?></p>
+        <p><b>All indices:</b> <?= $allIndices ? implode(', ', $allIndices) : '—' ?></p>
+    <?php else: ?>
+        <p>Value not found.</p>
+    <?php endif; ?>
+<?php endif; ?>
+</body>
+</html>
+OUTPUT:
+Array (comma-separated): 10,20,30,20,50
+Target value: 20
+Result
+Array: [10, 20, 30, 20, 50]
+First index of "20": 1
+All indices: 1, 3
+47] <?php
+// Step 1: Create an array
+$numbers = array(10, 20, 30, 40, 50);
+echo "Original Array: \n";
+print_r($numbers);
+// Step 2: Element to delete
+$elementToDelete = 30; // We want to delete value 30
+echo "\nAttempting to delete element: $elementToDelete\n";
+// Step 3: Search for the element in the array
+$key = array_search($elementToDelete, $numbers);
+if ($key !== false) {
+    // Step 4: Remove the element
+    unset($numbers[$key]);
+    echo "Element $elementToDelete deleted successfully.\n";
+} else {
+echo "Element $elementToDelete not found in array.\n";
+}
+// Step 5: Re-index the array
+$numbers = array_values($numbers);
+// Step 6: Display updated array
+echo "\nUpdated Array after Deletion:\n";
+foreach ($numbers as $index => $value) {
+    echo "Index $index => $value\n";
+}
+?>
+Output:
+Original Array: Array ( [0] => 10 [1] => 20 [2] => 30 [3] => 40 [4] => 50 ) Attempting to delete element: 30 Element 30 deleted successfully. Updated Array after Deletion: Index 0 => 10 Index 1 => 20 Index 2 => 40 Index 3 => 50
+48] <?php
+$students = array(
+    101 => "Alice",
+    102 => "Bob",
+    103 => "Charlie",
+    104 => "David",
+    105 => "Emma"
+);
+echo "----- Student Records -----\n";
+foreach ($students as $roll => $name) {
+    echo "Roll No: $roll | Name: $name\n";
+}
+$rollToFind = 103; // we want to search for Roll No 103
+echo "\nSearching for Roll No: $rollToFind...\n";
+if (array_key_exists($rollToFind, $students)) {
+    echo "Record Found: Roll No: $rollToFind | Name: " . $students[$rollToFind] . "\n";
+} else {
+   echo "No record found for Roll No: $rollToFind\n";
+}
+$totalRecords = count($students);
+echo "\nTotal Student Records: $totalRecords\n";
+$newRoll = 106;
+$newName = "Frank";
+$students[$newRoll] = $newName;
+echo "\nNew record added successfully.\n";
+echo "\n----- Updated Student Records -----\n";
+foreach ($students as $roll => $name) {
+    echo "Roll No: $roll | Name: $name\n";
+}
+?>
+Output:
+----- Student Records ----- Roll No: 101 | Name: Alice Roll No: 102 | Name: Bob Roll No: 103 | Name: Charlie Roll No: 104 | Name: David Roll No: 105 | Name: Emma Searching for Roll No: 103... Record Found: Roll No: 103 | Name: Charlie Total Student Records: 5 New record added successfully. ----- Updated Student Records ----- Roll No: 101 | Name: Alice Roll No: 102 | Name: Bob Roll No: 103 | Name: Charlie Roll No: 104 | Name: David Roll No: 105 | Name: Emma Roll No: 106 | Name: Frank
+49] <?php
+$players = array(
+    "Rohit"   => array("matches" => 10, "runs" => 400, "wickets" => 5),
+    "Virat"   => array("matches" => 12, "runs" => 520, "wickets" => 2),
+    "Hardik"  => array("matches" => 8,  "runs" => 300, "wickets" => 10),
+);
+echo "<pre>"; // preserves newlines and spaces
+echo "----- Player Performance Report -----\n";
+echo "Name    Matches Runs Wickets Bat.Avg Bowl.Impact PerformanceIndex\n";
+foreach ($players as $name => $stats) {
+    $battingAvg = $stats["matches"] > 0 ? $stats["runs"] / $stats["matches"] : 0;
+    $bowlingImpact = $stats["wickets"] * 10;
+    $performanceIndex = ($battingAvg + $bowlingImpact) / 2;
+    printf("%-7s %-7d %-4d %-7d %-7.2f %-11d %-10.2f\n",
+        $name,
+        $stats["matches"],
+        $stats["runs"],
+        $stats["wickets"],
+        $battingAvg,
+        $bowlingImpact,
+        $performanceIndex
+    );
+}
+echo "</pre>";
+?>
+OUTPUT:
+
+
+
+
+
+
+
+
+
+
+50] <?php
+$fruits = array("Apple", "Banana", "Cherry", "Mango", "Orange");
+echo "Original Array:<br>";
+print_r($fruits);
+$lowercaseFruits = array_map('strtolower', $fruits);
+$uppercaseFruits = array_map('strtoupper', $fruits);
+echo "\nLowercase Array:\n";
+foreach ($lowercaseFruits as $fruit) {
+    echo $fruit . "<\br>";
+}
+echo "\nUppercase Array:<br>";
+foreach ($uppercaseFruits as $fruit) {
+    echo $fruit . "<br>";
+}
+?>
+OUTPUT:
+Original Array:
+Array
+(
+    [0] => Apple
+    [1] => Banana
+    [2] => Cherry
+    [3] => Mango
+    [4] => Orange
+)
+Lowercase Array:
+Apple
+banana
+cherry
+mango
+orange
+Uppercase Array:
+APPLE
+BANANA
+CHERRY
+MANGO
+ORANGE
+51] <?php
+// Demonstrating array_shift() and array_unshift()
+$fruits = ["Apple", "Banana", "Cherry"];
+// array_shift(): Removes the first element
+$removed = array_shift($fruits);
+echo "Removed element using array_shift(): $removed\n";
+print_r($fruits);
+// array_unshift(): Adds elements to the beginning
+array_unshift($fruits, "Mango", "Orange");
+echo "After adding elements using array_unshift():\n";
+print_r($fruits);
+?>
+OUTPUT:
+Removed element using array_shift(): Apple
+Array
+(
+    [0] => Banana
+    [1] => Cherry
+)
+After adding elements using array_unshift():
+Array
+(
+    [0] => Mango
+    [1] => Orange
+    [2] => Banana
+    [3] => Cherry
+)
+52] <?php
+$stack = [];
+array_push($stack, "A");
+array_push($stack, "B");
+array_push($stack, "C");
+echo "Stack after pushes:\n";
+print_r($stack);
+$last = array_pop($stack);
+echo "Popped from stack: $last\n";
+print_r($stack);
+$queue = [];
+array_push($queue, "A");
+array_push($queue, "B");
+array_push($queue, "C");
+echo "Queue after pushes:\n";
+print_r($queue);
+$first = array_shift($queue);
+echo "Removed from queue: $first\n";
+print_r($queue);
+>
+OUTPUT 
+
+
+
+
+
+
+
+
+
+53] <?php
+$numbers = [1, 2, 3, 4, 5];
+$last = array_pop($numbers);
+echo "array_pop() removed: $last\n";
+print_r($numbers);
+$first = array_shift($numbers);
+echo "array_shift() removed: $first\n";
+print_r($numbers);
+?>
+OUTPUT:
+array_pop() removed: 5 Array ( [0] => 1 [1] => 2 [2] => 3 [3] => 4 ) 
+array_shift() removed: 1 Array ( [0] => 2 [1] => 3 [2] => 4 )
+54] <?php
+$ticketQueue = ["John", "Emma", "Alex"];
+// New customers join queue
+array_push($ticketQueue, "Sophia", "Michael");
+// Serve customers (FIFO)
+while (!empty($ticketQueue)) {
+    $customer = array_shift($ticketQueue);
+    echo "Booking ticket for: $customer\n";
+}
+?>
+OUTPUT:
+Booking ticket for: John
+ Booking ticket for: Emma 
+Booking ticket for: Alex Booking ticket for: Sophia 
+Booking ticket for: Michael
+55] <?php
+function reverseStringUsingStack($str) {
+    $stack = str_split($str); // Push all chars
+    $reversed = "";
+    while (!empty($stack)) {
+        $reversed .= array_pop($stack); // Pop chars
+    }
+    return $reversed;
+}
+echo reverseStringUsingStack("Hello World");
+?>
+OUTPUT:
+dlroW olleH
+56] What are all the Functions available to sort a PHP array?
+Functions to Sort a PHP Array
+•	sort() – Sort ascending, reindex
+•	rsort() – Sort descending, reindex
+•	asort() – Sort ascending, maintain keys
+•	arsort() – Sort descending, maintain keys
+•	ksort() – Sort by keys ascending
+•	krsort() – Sort by keys descending
+•	natsort() – Natural order sorting
+57] <?php
+echo "Q57: Regular Expression Examples in PHP\n\n";
+$email = "example@test.com";
+if (preg_match("/^[\w\.-]+@[\w\.-]+\.\w+$/", $email)) {
+    echo "Email '$email' is valid.\n";
+} else {
+    echo "Email '$email' is invalid.\n";
+}
+$stringWithNumbers = "Order ID: 12345, Amount: 567.89";
+preg_match_all("/\d+(\.\d+)?/", $stringWithNumbers, $matches);
+echo "Numbers found in string: " . implode(", ", $matches[0]) . "\n";
+$sentence = "The quick brown fox jumps over the lazy dog";
+if (preg_match("/fox/i", $sentence)) {
+    echo "The word 'fox' was found in the sentence.\n";
+} else {
+    echo "The word 'fox' was not found in the sentence.\n";
+}
+?>
+OUTPUT:
+Email 'example@test.com' is valid.
+Numbers found in string: 12345, 567.89
+The word 'fox' was found in the sentence.
+58] <?php
+echo "<h2>Q58: Username Validation</h2>";
+function validateUsername($username) {
+    $pattern = "/^[A-Za-z0-9_]{5,15}$/";
+    if (preg_match($pattern, $username)) {
+        echo "Username '$username' is VALID.<br>";
+    } else {
+        echo "Username '$username' is INVALID.<br>";
+    }
+}
+validateUsername("User_123");
+validateUsername("ab");
+validateUsername("Valid_User01");
+validateUsername("Invalid User!");
+?>
+OUTPUT:
+Username 'User_123' is VALID.
+Username 'ab' is INVALID.
+Username 'Valid_User01' is VALID.
+Username 'Invalid User!' is INVALID.
+59] <?php
+echo "<h2>Q59: String Analysis</h2>";
+$text = "PHP is fun.
+It is powerful for web development.
+Learning PHP improves coding skills.";
+$wordCount = str_word_count($text);
+$charCount = strlen($text);
+$lineCount = substr_count($text, "\n") + 1;
+echo "<b>Text:</b> <pre>$text</pre>";
+echo "Total Words: $wordCount<br>";
+echo "Total Characters: $charCount<br>";
+echo "Total Lines: $lineCount<br>";
+?>
+OUTPUT:
+Total Words: 13
+Total Characters: 97
+Total Lines: 3
+60] <?php
+echo "<h2>Q60: Check String Start</h2>";
+function startsWith($string, $startWord) {
+    return substr($string, 0, strlen($startWord)) === $startWord;
+}
+$text = "Hello world, PHP is amazing!";
+$word = "Hello";
+if (startsWith($text, $word)) {
+    echo "The string starts with '$word'.<br>";
+} else {
+    echo "The string does not start with '$word'.<br>";
+}
+?>
+OUTPUT:
+The string starts with 'Hello'.
+61] <?php
+echo "===== Delete an element from an array =====\n";
+$nums = [10, 20, 30, 40, 50];
+$toDelete = 30;
+echo "Original numeric array: "; print_r($nums);
+$idx = array_search($toDelete, $nums, true);
+if ($idx !== false) 
+   unset($nums[$idx]);
+    echo "Deleted value $toDelete at index $idx.\n";
+} else {
+    echo "Value $toDelete not found.\n";
+}
+$nums = array_values($nums);
+echo "After deletion + reindex: "; print_r($nums);
+$student = ['id'=>101, 'name'=>'Asha', 'dept'=>'CSE', 'year'=>3];
+echo "\nOriginal associative array: "; print_r($student);
+unset($student['dept']);
+echo "After deleting key 'dept': "; print_r($student);
+?>
+OUTPUT:
+Original numeric array: Array ( [0] => 10 [1] => 20 [2] => 30 [3] => 40 [4] => 50 )
+Deleted value 30 at index 2.
+After deletion + reindex: Array ( [0] => 10 [1] => 20 [2] => 40 [3] => 50 )
+Original associative array: Array ( [id] => 101 [name] => Asha [dept] => CSE [year] => 3 )
+After deleting key 'dept': Array ( [id] => 101 [name] => Asha [year] => 3 )
+62] <?php
+echo "===== Rounding with modes =====\n";
+$values = [1.65, 1.65, -1.54]; // as per sample
+$modes = [
+    'HALF_UP'   => PHP_ROUND_HALF_UP,
+    'HALF_DOWN' => PHP_ROUND_HALF_DOWN,
+    'HALF_EVEN' => PHP_ROUND_HALF_EVEN,
+'HALF_ODD'  => PHP_ROUND_HALF_ODD,
+];
+foreach ($values as $v) {
+    echo "Value: $v\n";
+    foreach ($modes as $name => $mode) {
+        $r = round($v, 1, $mode);
+        echo "  $name => $r\n";
+    }
+}
+?>
+Output:
+===== Rounding with modes =====
+Value: 1.65
+  HALF_UP => 1.7
+  HALF_DOWN => 1.6
+  HALF_EVEN => 1.6
+  HALF_ODD => 1.7
+Value: 1.65
+  HALF_UP => 1.7
+  HALF_DOWN => 1.6
+  HALF_EVEN => 1.6
+  HALF_ODD => 1.7
+Value: -1.54
+  HALF_UP => -1.5
+  HALF_DOWN => -1.5
+  HALF_EVEN => -1.5
+  HALF_ODD => -1.5
+<?php
+echo "=====  Sum of even numbers =====\n";
+function sum_of_evens(array $arr): int {
+    $sum = 0;
+    foreach ($arr as $v) {
+        // consider only integer-like numerics
+        if (is_numeric($v) && (int)$v == $v && ((int)$v) % 2 === 0) {
+            $sum += (int)$v;
+        }
+    }
+    return $sum;
+}
+$input = [1, 2, 3, 4, 5, 6, '8', 'x', 10.0, 11.2];
+echo "Input: "; print_r($input);
+echo "Sum of evens: " . sum_of_evens($input) . "\n";
+?>
+OUTPUT:
+=====  Sum of even numbers =====
+Input: Array ( [0] => 1 [1] => 2 [2] => 3 [3] => 4 [4] => 5 [5] => 6 [6] => 8 [7] => x [8] => 10 [9] => 11.2 )
+Sum of evens: 30
+64] <?php
+echo "=====  Sales trend & forecast =====\n";
+$sales = [1200, 1350, 1500, 1600, 1800, 2100, 1900, 2000, 2300, 2500, 2400, 2600]; // 12 months
+$growth = [];
+for ($i = 1; $i < count($sales); $i++) {
+    $prev = $sales[$i-1];
+    $cur  = $sales[$i];
+    $growth[] = ($cur - $prev) / $prev;
+}
+$ma3 = [];
+for ($i = 0; $i < count($sales); $i++) {
+    if ($i >= 2) {
+        $ma3[$i] = ($sales[$i] + $sales[$i-1] + $sales[$i-2]) / 3.0;
+    }
+}
+$avg_growth = count($growth) ? array_sum($growth) / count($growth) : 0.0;
+$projected_next = (int) round(end($sales) * (1 + $avg_growth));
+echo "Sales (months 1..12): "; print_r($sales);
+echo "MoM growth (fraction): "; print_r(array_map(fn($g)=>round($g,3), $growth));
+echo "3-month moving average (from month 3): "; print_r($ma3);
+echo "Average MoM growth: " . round($avg_growth * 100, 2) . "%\n";
+echo "Projected next month: $projected_next\n";
+?>
+OUTPUT:
+=====  Sales trend & forecast =====
+Sales (months 1..12): Array ( [0] => 1200 [1] => 1350 [2] => 1500 [3] => 1600 [4] => 1800 [5] => 2100 [6] => 1900 [7] => 2000 [8] => 2300 [9] => 2500 [10] => 2400 [11] => 2600 )
+MoM growth (fraction): Array ( [0] => 0.125 [1] => 0.111 [2] => 0.067 [3] => 0.125 [4] => 0.167 [5] => -0.095 [6] => 0.053 [7] => 0.15 [8] => 0.087 [9] => -0.04 [10] => 0.083 )
+3-month moving average (from month 3): Array ( [2] => 1350 [3] => 1483.3333333333 [4] => 1633.3333333333 [5] => 1833.3333333333 [6] => 1966.6666666667 [7] => 2000 [8] => 2066.6666666667 [9] => 2266.6666666667 [10] => 2400 [11] => 2500 )
+Average MoM growth: 8.52%
+Projected next month: 2732
+65] <?php
+echo "=====  String contains another string =====\n";
+$haystack = "Learning PHP arrays is fun.";
+$needle1 = "PHP";
+$needle2 = "python";
+echo "Case-sensitive check for '$needle1': ";
+echo (strpos($haystack, $needle1) !== false) ? "FOUND\n" : "NOT FOUND\n";
+echo "Case-insensitive check for '$needle2': ";
+echo (stripos($haystack, $needle2) !== false) ? "FOUND\n" : "NOT FOUND\n";
+?>
+OUTPUT:
+=====  String contains another string =====
+Case-sensitive check for 'PHP': FOUND
+Case-insensitive check for 'python': NOT FOUND
+66] <?php
+echo "===== Q66: count() vs sizeof() =====\n";
+$arr = [1, 2, [3, 4], ['a'=>5, 'b'=>[6,7]]];
+echo "count (top-level): " . count($arr) . "\n";
+echo "sizeof (top-level): " . sizeof($arr) . "\n"; // identical
+echo "count recursive: " . count($arr, COUNT_RECURSIVE) . "\n";
+?>
+OUTPUT:
+===== count() vs sizeof() =====
+count (top-level): 4
+sizeof (top-level): 4
+count recursive: 9
+67] <?php
+echo "=====  Tokenize & count =====\n";
+$text = "Hello, hello! This is a test. This test counts words; words count.";
+$tokens = preg_split('/[^A-Za-z]+/', strtolower($text), -1, PREG_SPLIT_NO_EMPTY);
+$freq = [];
+foreach ($tokens as $w) {
+    $freq[$w] = ($freq[$w] ?? 0) + 1;
+}
+echo "Text: $text\n";
+echo "Tokens: "; print_r($tokens);
+echo "Frequencies:\n"; print_r($freq);
+?>
+Output:
+=====  Tokenize & count =====
+Text: Hello, hello! This is a test. This test counts words; words count.
+Tokens: Array ( [0] => hello [1] => hello [2] => this [3] => is [4] => a [5] => test [6] => this [7] => test [8] => counts [9] => words [10] => words [11] => count )
+Frequencies:
+Array ( [hello] => 2 [this] => 2 [is] => 1 [a] => 1 [test] => 2 [counts] => 1 [words] => 2 [count] => 1 )
+68] <?php
+echo "===== Try–catch division by zero =====\n";
+function safe_divide($a, $b) {
+    try {
+        if ($b == 0) {
+            throw new DivisionByZeroError("Cannot divide by zero");
+        }
+        return $a / $b;
+    } catch (Throwable $e) {
+        echo "Error: " . $e->getMessage() . "\n";
+        return null;
+    }
+}
+echo "10 / 2 = " . safe_divide(10, 2) . "\n";
+echo "10 / 0 = " . var_export(safe_divide(10, 0), true) . "\n";
+?>
+OUTPUT:
+===== Try–catch division by zero =====
+10 / 2 = 5
+Error: Cannot divide by zero
+10 / 0 = NULL
+69] $Color = array('A' => 'Blue', 'B' => 'Green', 'c' => 'Red');
+Expected Output :
+Values are in lower case.
+Array ( [A] => blue [B] => green [c] => red )
+Values are in upper case.
+Array ( [A] => BLUE [B] => GREEN [c] => RED )
+ANSWER:
+<?php
+echo "===== Q69: Change values to lower/upper =====\n";
+$Color = array('A' => 'Blue', 'B' => 'Green', 'c' => 'Red');
+$lower = array_map('strtolower', $Color);
+echo "Values are in lower case.\n";
+print_r($lower);
+$upper = array_map('strtoupper', $Color);
+echo "Values are in upper case.\n";
+print_r($upper);
+?>
+OUTPUT:
+===== Change values to lower/upper ===== 
+Values are in lower case. Array ( [A] => blue [B] => green [c] => red ) 
+Values are in upper case. Array ( [A] => BLUE [B] => GREEN [c] => RED )
+70] <?php
+echo "=====  Read numbers into an array =====\n";
+$input = "10, 20, 30, 40, 50, xyz"; // simulate input string
+$parts = preg_split('/\\s*,\\s*/', trim($input));
+$nums = [];
+foreach ($parts as $p) {
+    if ($p === '') continue;
+    if (!is_numeric($p)) {
+        echo "Skipping invalid token: $p\n";
+        continue;
+    }
+    $nums[] = $p + 0; // cast to int/float
+}
+echo "From web-style input \"$input\": "; print_r($nums);
+OUTPUT:
+===== Read numbers into an array =====
+Skipping invalid token: xyz
+From web-style input "10, 20, 30, 40, 50, xyz": Array ( [0] => 10 [1] => 20 [2] => 30 [3] => 40 [4] => 50 )
