@@ -1,0 +1,38 @@
+<?php
+function withdraw($balance, $amount) {
+    if ($amount > $balance) throw new Exception("Error: Insufficient Balance! Cannot withdraw $amount.");
+    if ($amount <= 0) throw new Exception("Error: Invalid withdrawal amount!");
+    $balance -= $amount;
+    echo "<p class='success'>Withdrawal Successful! Amount: <b>$amount</b></p>";
+    echo "<p class='info'>Remaining Balance: <b>$balance</b></p>";
+    return $balance;
+}
+
+try {
+    $balance = 5000;
+    echo "<h2>Bank Transaction</h2>";
+    echo "<p class='info'>Initial Balance: <b>$balance</b></p><br>";
+    $balance = withdraw($balance, 2000);
+    $balance = withdraw($balance, 4000); // will throw exception
+} catch (Exception $e) {
+    echo "<p class='error'><b>Transaction Failed:</b> " . $e->getMessage() . "</p>";
+}
+?>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Bank Transaction Handling</title>
+<style>
+body{font-family:Arial,sans-serif;background:#f8f9fa;}
+.container{width:50%;margin:40px auto;background:#fff;padding:20px;border-radius:10px;border:1px solid #ddd;box-shadow:0 3px 8px rgba(0,0,0,0.1);}
+h2{text-align:center;color:#007bff;}
+.info{color:#333;font-size:16px;}
+.success{color:green;font-weight:bold;}
+.error{color:red;font-weight:bold;background:#ffe6e6;padding:10px;border:1px solid red;border-radius:5px;}
+</style>
+</head>
+<body>
+<div class="container">
+</div>
+</body>
+</html>
