@@ -1,0 +1,35 @@
+<?php
+$employees = [
+    ["id"=>101,"name"=>"John","basic"=>20000,"bonus"=>5000],
+    ["id"=>102,"name"=>"Mary","basic"=>25000,"bonus"=>7000],
+    ["id"=>103,"name"=>"Peter","basic"=>18000,"bonus"=>4000],
+    ["id"=>104,"name"=>"Anita","basic"=>22000,"bonus"=>6000]
+];
+?>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Employee Salary Details</title>
+<style>
+body{font-family:Arial,sans-serif;background:#f8f9fa;}
+.container{width:70%;margin:40px auto;background:#fff;padding:20px;border-radius:10px;border:1px solid #ddd;box-shadow:0 3px 8px rgba(0,0,0,0.1);}
+h2{text-align:center;color:#007bff;}
+table{width:100%;border-collapse:collapse;margin-top:15px;}
+th,td{border:1px solid #999;padding:10px;text-align:center;}
+th{background:#007bff;color:#fff;}
+td{background:#f4f6f7;}
+.highlight{font-weight:bold;color:green;}
+</style>
+</head>
+<body>
+<div class="container">
+<h2>Employee Salary Details</h2>
+<table>
+<tr><th>ID</th><th>Name</th><th>Basic Salary</th><th>Bonus</th><th>Total Salary</th></tr>
+<?php foreach($employees as $e){ $t=$e["basic"]+$e["bonus"]; ?>
+<tr><td><?=$e["id"]?></td><td><?=$e["name"]?></td><td><?=$e["basic"]?></td><td><?=$e["bonus"]?></td><td class="highlight"><?=$t?></td></tr>
+<?php } ?>
+</table>
+</div>
+</body>
+</html>
