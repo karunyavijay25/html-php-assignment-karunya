@@ -1,0 +1,36 @@
+<?php
+function calculateGrade($m) {
+    return $m>=90?"A":($m>=75?"B":($m>=50?"C":"F"));
+}
+$students=["John"=>85,"Mary"=>92,"Peter"=>67,"Anita"=>45];
+?>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Student Grade Calculation</title>
+<style>
+body{font-family:Arial,sans-serif;background:#f8f9fa;}
+.container{width:60%;margin:40px auto;background:#fff;padding:20px;border-radius:10px;border:1px solid #ddd;box-shadow:0 3px 8px rgba(0,0,0,0.1);}
+h2{text-align:center;color:#007bff;}
+table{width:100%;border-collapse:collapse;margin-top:15px;}
+th,td{border:1px solid #999;padding:10px;text-align:center;}
+th{background:#007bff;color:#fff;}
+td{background:#f4f6f7;}
+.gradeA{color:green;font-weight:bold;}
+.gradeB{color:blue;font-weight:bold;}
+.gradeC{color:orange;font-weight:bold;}
+.gradeF{color:red;font-weight:bold;}
+</style>
+</head>
+<body>
+<div class="container">
+<h2>Student Grades</h2>
+<table>
+<tr><th>Student</th><th>Marks</th><th>Grade</th></tr>
+<?php foreach($students as $n=>$m): $g=calculateGrade($m); ?>
+<tr><td><?=$n?></td><td><?=$m?></td><td class="grade<?=$g?>"><?=$g?></td></tr>
+<?php endforeach; ?>
+</table>
+</div>
+</body>
+</html>
